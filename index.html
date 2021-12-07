@@ -1,118 +1,24 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-   <head>
-    <style>
-      body {
-          background: rgb(188, 245, 193);
-          color: rgb(45, 45, 45);
-          padding: 10px;
-          font-family: arial;
-      }
-      #all-contents {
-          max-width: 800px;
-          margin: auto;
-      }
-  
-      /* navigation menu */
-      nav {
-          background: rgb(150, 104, 73);
-          margin: 0 auto;
-          display: flex;
-          padding: 10px;
-      }
-      h1 {
-          display: flex;
-          align-items: center;
-          color: rgb(26, 63, 15);
-          flex: 1;
-          margin: 0;
-      }
-      #nav-ul {
-          list-style-image: none;
-      }
-      .nav-li {
-          display: inline-block;
-          padding: 0 10px;
-      }
-      a {
-          text-decoration: none;
-          color: #fff;
-      }
-  
-      /* main container area beneath menu */
-      main {
-          background: rgb(245, 238, 219);
-          display: flex;
-      }
-      .sidebar {
-          margin-right: 25px;
-          padding: 10px;
-      }
-      .sidebar-img {
-          width: 200px;
-      }
-      .content {
-          flex: 1;
-          padding: 15px;
-      }
-      #interests {
-          border: 4px silver ridge;
-          padding: 8px;
-      }
-      h2, h3 {
-          margin: 0px;
-      }
-  </style>
-  
-    <title>Ariel's Amazing Website</title>
-   </head>
-  
-   <body>
-
-     <!-- All content goes here -->
-     <h2>Ariel Overman :)</h2>
-     <p>Student at Northshore High</p>
-     <div> 
-      <nav>
-        <h1>Ariel's Swag Website</h1>
-        <ul>
-          <li>
-            <a href= "index.html"> Home </a>
-          </li>
-          <li>
-            <a href= "portfolio.html"> Portfolio </a>
-          </li>
-        </ul>
-      </nav>
-
-      <main>
-
-        <!-- Sidebar section -->
-        <div>
-           <img src="https://photos.google.com/search/_tra_/photo/AF1QipMXi8WJqPqp2MNYDHCxfW8Yjz5qltRYGaIy-Ynf"> 
-        </div>
-
-        <!-- Content section -->
-        <div>
-        
-<!-- Content Section-->
-     <div>
-     <h2></h2>
-     <p></p>
- <!-- Interests section -->
-     <div>
-    <h3>Interests</h3>
-            <ul>
-                <li>Reading </li>
-                <li>Baking  </li>
-                <li>Collecting crystals </li>
-            </ul>
-        
-        </div>
-      </main>
-    </div>
-     
-   </body>
+    <head>
+        <title>Platformer</title>
+        <script src="lib/jquery.min.js"></script>
+        <script src="lib/phaser.min.js"></script>
+        <script src="js/factory/game.js"></script>
+        <script src="js/factory/preload.js"></script>
+        <script src="js/factory/platform.js"></script>
+        <script src="js/factory/collectable.js"></script>
+        <script src="js/factory/cannon.js"></script>
+        <script src="js/factory/player.js"></script>
+        <script src="js/controller/player-manager.js"></script>
+        <script src="js/init/platform.js"></script>
+        <script src="js/init/collectable.js"></script>
+        <script src="js/init/cannon.js"></script>
+        <script src="js/init/player.js"></script>
+    </head>
+    <body>
+        <script src="js/index.js"></script>
+    </body>
 </html>
 
  
