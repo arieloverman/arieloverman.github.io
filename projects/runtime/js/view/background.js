@@ -26,8 +26,9 @@ var background = function (window) {
         var background;
         
         // ANIMATION VARIABLES HERE:
-        
-     
+
+            var tree; 
+
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
         function render() {
@@ -36,37 +37,59 @@ var background = function (window) {
             // TODO: 2 - Part 2
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
+
             var backgroundFill = draw.rect(canvasWidth,groundY,'#383942');
             background.addChild(backgroundFill);
             
+
             // TODO: 3 - Add a moon and starfield
+
+            //everytime this loop runs it creates a circle with a random x and y respective to the canvas and is added to the background
+            for(var i = 0; i <= 100; i++){ //loop for the stars 
+                var circle = draw.circle(3,'white','lightGrey',2); //size and color of the stars
+                circle.x = canvasWidth*Math.random(); //randomizes the x coordinates of the stars
+                circle.y = groundY*Math.random(); //randomizes the y coordinates of the stars 
+                background.addChild(circle); //runs it as the background             
+            }
+
+            var moon = draw.bitmap('img/moon.png'); //created a variable called moon. Draw
+            moon.x = canvasWidth - 300; //moves the moon towards the left or right
+            moon.y = groundY - 400 // moves the moon up or down                   
+            moon.scaleX = .5; //makes the moon wider 
+            moon.scaleY = .5; // makes the moon taller
+            background.addChild(moon); //adds the moon to the background
             
-            
+        
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
             
             
             // TODO 4: Part 1 - Add a tree
-            var moon = draw.bitmap('img/moon.png'); //created a variable called moon. Draw
-            moon.x = 700; //moves the moon towards the left or right
-            moon.y = 100 // moves the moon up or down                   
-            moon.scaleX = .5; //makes the moon wider 
-            moon.scaleY = .5; // makes the moon taller
-            background.addChild(moon);
-            
+
+            tree = draw.bitmap('img/tree.png');
+            tree.x = canvasWidth - 500;
+            tree.y = groundY - 200;
+            background.addChild(tree);
+
+
         } // end of render function - DO NOT DELETE
         
         
         // Perform background animation
         // called on each timer "tick" - 60 times per second
-        function update() {
+            function update() {
             // useful variables
             var canvasWidth = app.canvas.width;
             var canvasHeight = app.canvas.height;
             var groundY = ground.y;
             
             // TODO 4: Part 2 - Move the tree!
-            
-            
+               
+            tree.x = tree.x - 1; //taking the value of tree.x and decreasing it by one pixel every time the update function runs. 
+
+            if(tree.x < -200) {
+            tree.x = canvasWidth;
+            }
+
             // TODO 5: Part 2 - Parallax
             
 
