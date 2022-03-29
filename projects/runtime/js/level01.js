@@ -33,10 +33,6 @@ var level01 = function (window) {
                 { "type": "enemy", "x": 1100, "y": groundY -50 },
                 { "type": "enemy", "x": 1300, "y": groundY -50 },
                 { "type": "enemy", "x": 1500, "y": groundY -50 },
-                { "type": "enemy", "x": 1700, "y": groundY -50 },
-                { "type": "enemy", "x": 1900, "y": groundY -50 },
-                { "type": "enemy", "x": 2100, "y": groundY -50 },
-                { "type": "enemy", "x": 2300, "y": groundY -50 },
 
                 { "type": "reward", "x": 200, "y": groundY  -50 },
                 { "type": "reward", "x": 1100, "y": groundY -50 },
@@ -69,11 +65,12 @@ var level01 = function (window) {
         
 
         function createEnemy(x,y){    
-            var redSquare = draw.bitmap("enemy.png");
+            var redSquare = draw.bitmap("img/enemy.png");
             var enemy = game.createGameItem('enemy',25); //creating the game item and storing it in the variable enemy
-            var redSquare = draw.rect(50, 50,'red'); //created rectangle and stores as redSquare  
             redSquare.x = -25; //
             redSquare.y = -25;
+            redSquare.scaleX = .5;
+            redSquare.scaleY = .5; 
             enemy.addChild(redSquare); //adds the redSquare to the enemy game item 
 
             enemy.x = x;
@@ -83,7 +80,6 @@ var level01 = function (window) {
 
             enemy.velocityX = -2; //causes the enemy to move one pixel to the left on the x pos 
 
-            enemy.rotationalVelocity = 25; //causes the enemy to rotate 
 
             enemy.onPlayerCollision = function() {
                 console.log('The enemy has hit Halle');
@@ -102,10 +98,12 @@ var level01 = function (window) {
 
 
             function createReward(x, y){
+                var blueSquare = draw.bitmap("img/reward.png");
                 var reward = game.createGameItem('reward', 25);
-                var blueSquare = draw.rect(50, 50, 'blue');
                 blueSquare.x = -25;
                 blueSquare.y = -25;
+                blueSquare.scaleX = .3;
+                blueSquare.scaleY = .3; 
                 reward.addChild(blueSquare);
 
                 reward.x = x;
@@ -115,12 +113,12 @@ var level01 = function (window) {
 
                 reward.velocityX = -1
 
-                reward.rotationalVelocity = 25
 
                 reward.onPlayerCollision = function(){
                     console.log("The reward has hit halle");
                     game.changeIntegrity(100);
                     game.increaseScore(100);
+                    reward.shrink(); 
                 }; 
             }      
            
